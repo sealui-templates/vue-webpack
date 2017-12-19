@@ -33,7 +33,9 @@
     "nprogress": "^0.2.0"
     {{/nprogress}}{{#balajs}},
     "balajs": "^1.0.7"
-    {{/balajs}}
+    {{/balajs}}{{#isMobile}},
+    "fastclick": "^1.0.6"
+    {{/isMobile}}
   },
   "devDependencies": {
     {{#lint}}

@@ -70,7 +70,7 @@ exports.printMessage = function printMessage(data, { green, yellow }) {
 # ${green('项目初始化完成!')}
 # ========================
 
-开始飞奔吧:
+开始搬砖吧:
 
   ${yellow(
     `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${installMsg(

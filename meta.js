@@ -33,6 +33,10 @@ module.exports = {
       type: 'string',
       message: 'Author',
     },
+    "isMobile":{
+      "type": "confirm",
+      "message": "是否是移动应用?"
+    },
     build: {
       type: 'list',
       message: 'Vue build',

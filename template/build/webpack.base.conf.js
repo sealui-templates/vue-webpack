@@ -44,16 +44,16 @@ module.exports = {
 		publicPath        : process.env.NODE_ENV === 'production' ? config.prod.assetsPublicPath : config.dev.assetsPublicPath
   },
   externals : process.env.NODE_ENV !== 'development' ? {
-    "vue": "Vue"{{#axios}},
-    "axios" : "axios"{{/axios}}{{#router}},
-    "vue-router" : "VueRouter"
-    {{/router}}
+    "vue"        : "Vue"{{#axios}},
+    "axios"      : "axios"{{/axios}}{{#router}},
+    "vue-router" : "VueRouter"{{/router}}{{#isMobile}},
+    "fastclick"  : "fastclick"{{#isMobile}}
   } : '',
   resolve: {
     extensions : ['.js', '.jsx', '.json','.css','.less','.vue'],
     alias: {
       {{#if_eq prod "standalone"}}
-      'vue$': 'vue/dist/vue.esm.js',
+      'vue$'       : 'vue/dist/vue.esm.js',
       {{/if_eq}}
 			'@'          : resolve('src'),
 			'components' : resolve('src/components'),
