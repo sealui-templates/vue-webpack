@@ -113,7 +113,7 @@
     "html-loader": "^0.5.1",
     "html-webpack-plugin": "^2.30.1"{{#less}},
     "less": "^2.7.3",
-    "less-loader": "^4.0.5",{{/less}}
+    "less-loader": "^4.0.5"{{/less}},
     "webpack-bundle-analyzer": "^2.9.0",
     "node-notifier": "^5.1.2",
     "postcss-easy-import": "^3.0.0",
