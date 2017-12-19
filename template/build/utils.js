@@ -6,7 +6,7 @@ const packageConfig = require('../package.json')
 
 var _assetsSubDirectory = '';
 if(process.env.NODE_ENV === 'production'){
-  _assetsSubDirectory = config.build.assetsSubDirectory;
+  _assetsSubDirectory = config.prod.assetsSubDirectory;
 }else if(process.env.NODE_ENV === 'ceshi'){
   _assetsSubDirectory = config.ceshi.assetsSubDirectory;
 }else if(process.env.NODE_ENV === 'demo'){

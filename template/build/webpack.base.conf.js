@@ -1,9 +1,11 @@
 'use strict'
-const path            = require('path')
-const utils           = require('./utils')
-const config          = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
-const pkg             = require('../package.json');
+const path              = require('path')
+const webpack           = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const utils             = require('./utils')
+const config            = require('../config')
+const vueLoaderConfig   = require('./vue-loader.conf')
+const pkg               = require('../package.json');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -32,19 +34,25 @@ module.exports = {
     app: './src/main.js'
   },
   output: {
-		path              : config.build.assetsRoot,
+		path              : config.prod.assetsRoot,
 		filename          : '[name].js',
 		sourceMapFilename : '[file].map',
 		chunkFilename     : '[name].js',
 		library           : 'SealUI',
 		libraryTarget     : 'umd',
 		umdNamedDefine    : true,
-		publicPath        : process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath
+		publicPath        : process.env.NODE_ENV === 'production' ? config.prod.assetsPublicPath : config.dev.assetsPublicPath
   },
+  externals : process.env.NODE_ENV !== 'development' ? {
+    "vue": "Vue"{{#axios}},
+    "axios" : "axios"{{/axios}}{{#router}},
+    "vue-router" : "VueRouter"
+    {{/router}}
+  } : '',
   resolve: {
     extensions : ['.js', '.jsx', '.json','.css','.less','.vue'],
     alias: {
-      {{#if_eq build "standalone"}}
+      {{#if_eq prod "standalone"}}
       'vue$': 'vue/dist/vue.esm.js',
       {{/if_eq}}
 			'@'          : resolve('src'),
@@ -107,7 +115,7 @@ module.exports = {
   	new CopyWebpackPlugin([
 			{
 				from           : path.resolve(__dirname, '../public'),
-				to             : config.build.assetsSubDirectory,
+				to             : config.prod.assetsSubDirectory,
 				ignore         : ['*.html','*.json','*.tpl','*.php','.*'],
 				copyUnmodified : true
 			}
