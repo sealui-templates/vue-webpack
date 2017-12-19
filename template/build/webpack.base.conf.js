@@ -47,7 +47,7 @@ module.exports = {
     "vue"        : "Vue"{{#axios}},
     "axios"      : "axios"{{/axios}}{{#router}},
     "vue-router" : "VueRouter"{{/router}}{{#isMobile}},
-    "fastclick"  : "fastclick"{{#isMobile}}
+    "fastclick"  : "FastClick"{{/isMobile}}
   } : '',
   resolve: {
     extensions : ['.js', '.jsx', '.json','.css','.less','.vue'],
