@@ -28,6 +28,12 @@ const webpackConfig = merge(baseWebpackConfig, {
     filename: utils.assetsPath('js/[name].min.js'),
     chunkFilename: utils.assetsPath('js/[id].min.js')
   },
+  externals : {
+    "vue"        : "Vue"{{#axios}},
+    "axios"      : "axios"{{/axios}}{{#router}},
+    "vue-router" : "VueRouter"{{/router}}{{#isMobile}},
+    "fastclick"  : "FastClick"{{/isMobile}}
+  },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({

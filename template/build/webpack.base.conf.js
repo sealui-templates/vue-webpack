@@ -43,12 +43,6 @@ module.exports = {
 		umdNamedDefine    : true,
 		publicPath        : process.env.NODE_ENV === 'production' ? config.prod.assetsPublicPath : config.dev.assetsPublicPath
   },
-  externals : process.env.NODE_ENV !== 'development' ? {
-    "vue"        : "Vue"{{#axios}},
-    "axios"      : "axios"{{/axios}}{{#router}},
-    "vue-router" : "VueRouter"{{/router}}{{#isMobile}},
-    "fastclick"  : "FastClick"{{/isMobile}}
-  } : '',
   resolve: {
     extensions : ['.js', '.jsx', '.json','.css','.less','.vue'],
     alias: {
