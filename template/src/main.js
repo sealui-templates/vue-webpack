@@ -3,8 +3,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 {{/if_eq}}
 {{#nprogress}}
-import NProgress from 'nprogress'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import 'nprogress/nprogress.css'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 {{/nprogress}}
 import Vue from 'vue'
 import App from './App'
@@ -21,13 +21,13 @@ if ('addEventListener' in document) {
 {{/isMobile}}
 {{#nprogress}}
 router.beforeEach((route, redirect, next) => {
-  NProgress.start(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-  next(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  NProgress.start()
+  next()
+})
 
 router.afterEach(route => {
-  NProgress.done(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  NProgress.done()
+})
 {{/nprogress}}
 
 Vue.config.productionTip = false
@@ -45,4 +45,4 @@ new Vue({
   template: '<App/>',
   components: { App }
   {{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+})
