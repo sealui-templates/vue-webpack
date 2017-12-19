@@ -70,6 +70,10 @@ module.exports = {
       type: 'confirm',
       message: 'Install nprogress?',
     },
+    balajs: {
+      type: 'confirm',
+      message: 'Install balajs?',
+    },
     lint: {
       type: 'confirm',
       message: 'Use ESLint to lint your code?',
