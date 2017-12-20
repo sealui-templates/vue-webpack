@@ -50,6 +50,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: config.dev.template,
       inject   : true,
+      releaseTime: (new Date()).getTime()
     }),
   ]
 })

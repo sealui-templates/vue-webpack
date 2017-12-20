@@ -24,7 +24,8 @@
     {{/lint}}
     "prod": "node build/prod.js",
     "ceshi": "node build/ceshi.js",
-    "demo": "node build/demo.js"
+    "demo": "node build/demo.js",
+    "clean": "rimraf dist && rimraf ceshi && rimraf demo && rimraf yarn-error.log && rimraf npm-debug.log"
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
@@ -118,6 +119,7 @@
     "less-loader": "^4.0.5",{{/less}}
     "webpack-bundle-analyzer": "^2.9.0",
     "node-notifier": "^5.1.2",
+    "postcss-import": "^11.0.0",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^2.0.9",
     "postcss-salad": "^2.0.1",
