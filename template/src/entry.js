@@ -11,6 +11,10 @@ import App from './App'
 {{#router}}
 import router from './router'
 {{/router}}
+{{#request}}
+import request from 'plugins/request'
+Vue.use(request)
+{{/request}}
 
 {{#isMobile}}
 var FastClick = require('fastclick');

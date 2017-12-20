@@ -30,8 +30,8 @@
   },
   "dependencies": {
     "vue": "^2.5.2"{{#router}},
-    "vue-router": "^3.0.1"{{/router}}{{#axios}},
-    "axios": "^0.16.1"{{/axios}}{{#nprogress}},
+    "vue-router": "^3.0.1"{{/router}}{{#request}},
+    "axios": "^0.16.1"{{/request}}{{#nprogress}},
     "nprogress": "^0.2.0"
     {{/nprogress}}{{#balajs}},
     "balajs": "^1.0.7"

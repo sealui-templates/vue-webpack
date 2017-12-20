@@ -37,6 +37,10 @@ module.exports = {
       "type": "confirm",
       "message": "是否是移动应用?"
     },
+    request: {
+      type: 'confirm',
+      message: '是否引用网络请求插件?',
+    },
     build: {
       type: 'list',
       message: 'Vue build',
@@ -61,10 +65,6 @@ module.exports = {
     less: {
       type: 'confirm',
       message: 'Install less?',
-    },
-    axios: {
-      type: 'confirm',
-      message: 'Install axios?',
     },
     nprogress: {
       type: 'confirm',
