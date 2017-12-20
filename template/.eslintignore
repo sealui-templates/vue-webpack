@@ -1,6 +1,9 @@
 /build/
 /config/
 /dist/
+/demo/
+/ceshi/
+/lib/
 /*.js
 {{#unit}}
 /test/unit/coverage/
