@@ -1,10 +1,12 @@
 var saladConfig = require('./public/salad.config.json');
 const postcssConfig = {
   plugins: [
-    //require('autoprefixer')(),
+    require("postcss-import")({
+
+    }),
     require('postcss-easy-import')({
       prefix: '_',
-      extensions: ['pcss', 'css','less']
+      extensions: ['css','less']
     }),
     require('postcss-salad')(saladConfig)
   ]

@@ -11,6 +11,7 @@ import App from './App'
 {{#router}}
 import router from './router'
 {{/router}}
+
 {{#isMobile}}
 var FastClick = require('fastclick');
 if ('addEventListener' in document) {
@@ -19,6 +20,7 @@ if ('addEventListener' in document) {
     }, false);
 }
 {{/isMobile}}
+
 {{#nprogress}}
 router.beforeEach((route, redirect, next) => {
   NProgress.start()

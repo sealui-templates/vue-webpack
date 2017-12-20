@@ -31,7 +31,7 @@ var banner = [
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    app: './src/entry.js'
   },
   output: {
 		path              : config.prod.assetsRoot,
@@ -41,7 +41,8 @@ module.exports = {
 		library           : 'SealUI',
 		libraryTarget     : 'umd',
 		umdNamedDefine    : true,
-		publicPath        : process.env.NODE_ENV === 'production' ? config.prod.assetsPublicPath : config.dev.assetsPublicPath
+		publicPath        : config.dev.assetsPublicPath
+		//publicPath        : process.env.NODE_ENV === 'production' ? config.prod.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
     extensions : ['.js', '.jsx', '.json','.css','.less','.vue'],
@@ -116,15 +117,11 @@ module.exports = {
 		]),
   ],
   node: {
-    // prevent webpack from injecting useless setImmediate polyfill because Vue
-    // source contains it (although only uses it if it's native).
-    setImmediate: false,
-    // prevent webpack from injecting mocks to Node native modules
-    // that does not make sense for the client
-    dgram: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty'
+		setImmediate  : false,
+		dgram         : 'empty',
+		fs            : 'empty',
+		net           : 'empty',
+		tls           : 'empty',
+		child_process : 'empty'
   }
 }
