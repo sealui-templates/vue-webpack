@@ -2,7 +2,7 @@
 default: help
 
 # build all style
-build-theme:
+style:
 	npm run build:style
 # 安装项目开发依赖
 install:
