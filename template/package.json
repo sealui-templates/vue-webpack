@@ -147,8 +147,14 @@
     "npm": ">= 3.0.0"
   },
   "browserslist": [
-    "> 1%",
+  	{{#isMobile}}
+  	"iOS >= 7",
+  	"Android >= 4.1"
+  	{{else}}
+  	"> 1%",
     "last 2 versions",
     "not ie <= 8"
+  	{{/isMobile}}
+
   ]
 }
