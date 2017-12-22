@@ -178,9 +178,11 @@ module.exports = {
     sortDependencies(data, green)
 
     const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName)
+    
     if(!data.vuex){
       delVuex(data);
     }
+
     if (data.autoInstall) {
       installDependencies(cwd, data.autoInstall, green)
         .then(() => {
