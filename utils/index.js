@@ -159,5 +159,5 @@ function sortObject(object) {
 }
 
 exports.delVuex = function delVuex(data) {
-  return deleteall(`${data.destDirName}/store`)
+  return deleteall(`${data.destDirName}/src/store`)
 }
