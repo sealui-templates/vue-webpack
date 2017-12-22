@@ -40,8 +40,8 @@ rm(path.join(config.ceshi.assetsRoot, config.ceshi.assetsSubDirectory), err => {
       process.exit(1)
     }
 
-    console.log('---------------------------------')
+    console.log(`🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴\n`)
     spinner.succeed(success('  [ 测试环境 ] 构建完成.'));
-    console.log('---------------------------------\n')
+    console.log(`\n🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴\n`)
   })
 })
