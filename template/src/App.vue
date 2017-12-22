@@ -11,7 +11,7 @@
 
 <script>
 {{#unless router}}
-import HelloWorld from 'components/HelloWorld'
+import HelloWorld from 'views/HelloWorld'
 {{/unless}}
 export default {
   name: 'app'{{#router}}{{else}},
