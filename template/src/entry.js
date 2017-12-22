@@ -7,6 +7,9 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 {{/nprogress}}
 import Vue from 'vue'
+{{#vuex}}
+import store from './store'
+{{/vuex}}
 import App from './App'
 {{#router}}
 import router from './router'
@@ -44,6 +47,9 @@ new Vue({
   {{#router}}
   router,
   {{/router}}
+  {{#vuex}}
+  store,
+  {{/vuex}}
   {{#if_eq build "runtime"}}
   render: h => h(App)
   {{/if_eq}}

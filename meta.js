@@ -5,6 +5,7 @@ const {
   installDependencies,
   runLintFix,
   printMessage,
+  delVuex
 } = require('./utils')
 
 module.exports = {
@@ -40,6 +41,10 @@ module.exports = {
     request: {
       type: 'confirm',
       message: '是否引用网络请求插件?',
+    },
+    vuex: {
+      type: 'confirm',
+      message: '是否安装vuex?',
     },
     build: {
       type: 'list',
@@ -173,7 +178,9 @@ module.exports = {
     sortDependencies(data, green)
 
     const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName)
-
+    if(!data.vuex){
+      delVuex(data);
+    }
     if (data.autoInstall) {
       installDependencies(cwd, data.autoInstall, green)
         .then(() => {

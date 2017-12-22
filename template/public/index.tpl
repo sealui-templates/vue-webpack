@@ -26,14 +26,17 @@
 	<div id="app"></div>
 	<% if (process.env.NODE_ENV !== 'development') { %>
 	{{#isMobile}}
-		<script src="https://unpkg.com/fastclick@1.0.6/lib/fastclick.js"></script>
+		<script src="//unpkg.com/fastclick@1.0.6/lib/fastclick.js"></script>
 		{{/isMobile}}
-		<script src="https://unpkg.com/vue@2.5.2/dist/vue.min.js"></script>
+		<script src="//unpkg.com/vue@2.5.2/dist/vue.min.js"></script>
 		{{#router}}
-		<script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.min.js"></script>
+		<script src="//unpkg.com/vue-router@3.0.1/dist/vue-router.min.js"></script>
 		{{/router}}
+		{{#vuex}}
+		<script src="//unpkg.com/vuex@3.0.1/dist/vuex.min.js"></script>
+		{{/vuex}}
 		{{#axios}}
-		<script src="https://unpkg.com/axios@0.16.1/dist/axios.min.js"></script>
+		<script src="//unpkg.com/axios@0.16.1/dist/axios.min.js"></script>
 		{{/axios}}
 		<% } %>
   </body>

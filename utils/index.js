@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const spawn = require('child_process').spawn
-
+const rm            = require('rimraf')
 const lintStyles = ['standard', 'airbnb']
 
 /**
@@ -72,7 +72,7 @@ exports.printMessage = function printMessage(data, { green, yellow }) {
 
 开始搬砖吧:
 
-  ${yellow(
+  ${green(
     `${data.inPlace ? '' : `cd ${data.destDirName}\n  `}${installMsg(
       data
     )}${lintMsg(data)}npm run dev`
@@ -141,4 +141,10 @@ function sortObject(object) {
       sortedObject[item] = object[item]
     })
   return sortedObject
+}
+
+exports.delVuex = function delVuex(data) {
+  rm(path.join(`${data.destDirName}`,'store'), err => {
+    if (err) throw err
+  })
 }
