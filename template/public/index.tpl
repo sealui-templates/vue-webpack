@@ -24,7 +24,7 @@
   </head>
   <body {{#isMobile}}ontouchstart{{/isMobile}}>
 	<div id="app"></div>
-	<% if (process.env.NODE_ENV !== 'development') { %>
+	<% if (process.env.NODE_ENV !== 'dev') { %>
 	{{#isMobile}}
 		<script src="//unpkg.com/fastclick@1.0.6/lib/fastclick.js"></script>
 		{{/isMobile}}
