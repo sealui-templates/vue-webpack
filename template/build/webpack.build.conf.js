@@ -12,22 +12,22 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const env = {{#if_or unit e2e}}process.env.NODE_ENV === 'testing'
 	? require('../config/test.env')
-	: {{/if_or}}require('../config/prod.env')
+	: {{/if_or}}require('../config/'+process.env.NODE_ENV+'.env')
 
 const webpackConfig = merge(baseWebpackConfig, {
 	module: {
 		rules: utils.styleLoaders({
-			sourceMap  : config.prod.productionSourceMap,
+			sourceMap  : config[process.env.NODE_ENV]['productionSourceMap'],
 			extract    : true,
 			usePostCSS : true
 		})
 	},
-	devtool: config.prod.productionSourceMap ? config.prod.devtool : false,
+	devtool: config[process.env.NODE_ENV]['productionSourceMap'] ? config[process.env.NODE_ENV]['devtool'] : false,
 	output: {
-		path          : config.prod.assetsRoot,
+		path          : config[process.env.NODE_ENV]['assetsRoot'],
 		filename      : utils.assetsPath('js/[chunkhash].js'),
 		chunkFilename : utils.assetsPath('js/[chunkhash].js'),
-		publicPath    : config.prod.assetsPublicPath
+		publicPath    : config[process.env.NODE_ENV]['assetsPublicPath']
 	},
 	externals : {
 		"vue"        : "Vue"{{#axios}},
@@ -50,7 +50,7 @@ const webpackConfig = merge(baseWebpackConfig, {
 				},
 				comments: false,
 			},
-			sourceMap: config.prod.productionSourceMap,
+			sourceMap: config[process.env.NODE_ENV]['productionSourceMap'],
 			parallel: true
 		}),
 		new ExtractTextPlugin({
@@ -58,13 +58,13 @@ const webpackConfig = merge(baseWebpackConfig, {
 			allChunks: true,
 		}),
 		new OptimizeCSSPlugin({
-			cssProcessorOptions: config.prod.productionSourceMap
+			cssProcessorOptions: config[process.env.NODE_ENV]['productionSourceMap']
 				? { safe: true, map: { inline: false } }
 				: { safe: true }
 		}),
 		new HtmlWebpackPlugin({
-			filename    : config.prod.index,
-			template    : config.prod.template,
+			filename    : config[process.env.NODE_ENV]['index'],
+			template    : config[process.env.NODE_ENV]['template'],
 			inject      : true,
 			hash        : false,
 			releaseTime : (new Date()).getTime(),
@@ -102,7 +102,7 @@ const webpackConfig = merge(baseWebpackConfig, {
 	]
 })
 
-if (config.prod.productionGzip) {
+if (config[process.env.NODE_ENV]['productionGzip']) {
 	const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 	webpackConfig.plugins.push(
@@ -111,7 +111,7 @@ if (config.prod.productionGzip) {
 			algorithm: 'gzip',
 			test: new RegExp(
 				'\\.(' +
-				config.prod.productionGzipExtensions.join('|') +
+				config[process.env.NODE_ENV]['productionGzipExtensions'].join('|') +
 				')$'
 			),
 			threshold: 10240,
@@ -120,7 +120,7 @@ if (config.prod.productionGzip) {
 	)
 }
 
-if (config.prod.bundleAnalyzerReport) {
+if (config[process.env.NODE_ENV]['bundleAnalyzerReport']) {
 	const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 	webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }

@@ -4,19 +4,9 @@ const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
 
-var _assetsSubDirectory = '';
-if(process.env.NODE_ENV === 'production'){
-  _assetsSubDirectory = config.prod.assetsSubDirectory;
-}else if(process.env.NODE_ENV === 'ceshi'){
-  _assetsSubDirectory = config.ceshi.assetsSubDirectory;
-}else if(process.env.NODE_ENV === 'demo'){
-  _assetsSubDirectory = config.demo.assetsSubDirectory;
-}else{
-  _assetsSubDirectory = config.dev.assetsSubDirectory;
-}
 
 exports.assetsPath = function (_path) {
-  const assetsSubDirectory =_assetsSubDirectory;
+  const assetsSubDirectory = config[process.env.NODE_ENV]['assetsSubDirectory'];
   return path.posix.join(assetsSubDirectory, _path)
 }
 

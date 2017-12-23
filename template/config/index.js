@@ -27,7 +27,7 @@ module.exports = {
 		cssSourceMap              : false,
   },
 
-  prod: {
+  production: {
 		index                    : path.resolve(__dirname, '../dist/index.html'),
 		template                 : path.resolve(__dirname, '../public/index.tpl'),
 		assetsRoot               : path.resolve(__dirname, '../dist'),

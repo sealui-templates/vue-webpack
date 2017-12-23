@@ -22,9 +22,9 @@
     {{#lint}}
     "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}",
     {{/lint}}
-    "prod": "node build/prod.js",
-    "ceshi": "node build/ceshi.js",
-    "demo": "node build/demo.js",
+    "prod": "cross-env NODE_ENV=production node build/bin/build.js",
+    "ceshi": "cross-env NODE_ENV=ceshi node build/bin/build.js",
+    "demo": "cross-env NODE_ENV=demo node build/bin/build.js",
     "build:style": "rimraf lib && rimraf src/assets/*/lib && gulp build --gulpfile src/assets/css/gulpfile.js && cp-cli src/assets/css/lib lib/css",
     "clean": "rimraf lib && rimraf src/assets/*/lib && rimraf dist && rimraf ceshi && rimraf demo && rimraf yarn-error.log && rimraf npm-debug.log"
   },

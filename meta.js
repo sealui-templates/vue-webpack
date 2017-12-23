@@ -5,7 +5,7 @@ const {
   installDependencies,
   runLintFix,
   printMessage,
-  delVuex
+  removeVuex
 } = require('./utils')
 
 module.exports = {
@@ -180,7 +180,7 @@ module.exports = {
     const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName)
     
     if(!data.vuex){
-      delVuex(data);
+      removeVuex(data);
     }
 
     if (data.autoInstall) {

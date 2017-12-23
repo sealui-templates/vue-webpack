@@ -34,14 +34,14 @@ module.exports = {
     app: './src/entry.js'
   },
   output: {
-		path              : config.prod.assetsRoot,
+		path              : config[process.env.NODE_ENV]['assetsRoot'],
 		filename          : '[name].js',
 		sourceMapFilename : '[file].map',
 		chunkFilename     : '[name].js',
 		library           : 'SealUI',
 		libraryTarget     : 'umd',
 		umdNamedDefine    : true,
-		publicPath        : config.dev.assetsPublicPath
+		publicPath        : config[process.env.NODE_ENV]['assetsPublicPath']
 		//publicPath        : process.env.NODE_ENV === 'production' ? config.prod.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
@@ -110,7 +110,7 @@ module.exports = {
   	new CopyWebpackPlugin([
 			{
 				from           : path.resolve(__dirname, '../public'),
-				to             : config.prod.assetsSubDirectory,
+				to             : config[process.env.NODE_ENV]['assetsSubDirectory'],
 				ignore         : ['*.html','*.json','*.tpl','*.php','.*'],
 				copyUnmodified : true
 			}

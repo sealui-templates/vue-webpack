@@ -1,26 +1,26 @@
 'use strict'
-require('./check-versions')()
+require('../check-versions')()
 
-process.env.NODE_ENV = 'demo'
+process.env.NODE_ENV = 'production'
 
 const ora           = require('ora')
 const rm            = require('rimraf')
 const path          = require('path')
 const chalk         = require('chalk')
 const webpack       = require('webpack')
-const config        = require('../config')
-const webpackConfig = require('./webpack.demo.conf')
+const config        = require('../../config')
+const webpackConfig = require('../webpack.build.conf')
 
 var success         = chalk.bold.green;
 var error           = chalk.bold.red;
 var spinner = new ora({
-	text    : success('开始构建 [ 演示环境 ]...'),
+	text    : success('开始构建 [ '+process.env.NODE_ENV+' ]...'),
 	spinner : "dots"
 })
 spinner.start()
 
 
-rm(path.join(config.demo.assetsRoot, config.demo.assetsSubDirectory), err => {
+rm(path.join(config[process.env.NODE_ENV]['assetsRoot'], config[process.env.NODE_ENV]['assetsSubDirectory']), err => {
   if (err) throw err
   webpack(webpackConfig, (err, stats) => {
     spinner.stop()
@@ -35,13 +35,13 @@ rm(path.join(config.demo.assetsRoot, config.demo.assetsSubDirectory), err => {
 
     if (stats.hasErrors()) {
       console.log('---------------------------------')
-    	spinner.fail(error('  [ 演示环境 ] 构建失败.'));
+    	spinner.fail(error('  [ '+process.env.NODE_ENV+' ] 构建失败.'));
     	console.log('---------------------------------\n')
       process.exit(1)
     }
 
     console.log(`🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴\n`)
-    spinner.succeed(success('  [ 演示环境 ] 构建完成.'));
+    spinner.succeed(success('  [ '+process.env.NODE_ENV+' ] 构建完成.'));
     console.log(`\n🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴\n`)
   })
 })

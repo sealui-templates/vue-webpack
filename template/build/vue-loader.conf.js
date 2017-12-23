@@ -3,16 +3,16 @@ const utils = require('./utils')
 const config = require('../config')
 const isProduction = process.env.NODE_ENV === 'production'
 const sourceMapEnabled = isProduction
-  ? config.prod.productionSourceMap
+  ? config[process.env.NODE_ENV]['productionSourceMap']
   : config.dev.cssSourceMap
 
 module.exports = {
   loaders: utils.cssLoaders({
-    sourceMap: sourceMapEnabled,
-    extract: isProduction
+		sourceMap : sourceMapEnabled,
+		extract   : isProduction
   }),
-  cssSourceMap: sourceMapEnabled,
-  cacheBusting: config.dev.cacheBusting,
+	cssSourceMap : sourceMapEnabled,
+	cacheBusting : config.dev.cacheBusting,
   transformToRequire: {
     video: ['src', 'poster'],
     source: 'src',
