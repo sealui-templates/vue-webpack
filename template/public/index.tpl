@@ -18,7 +18,9 @@
 	{{/isMobile}}
 	<script>
 		if ( typeof $CONFIG == "undefined" || !$CONFIG ) {
-			releaseTime:'<%=htmlWebpackPlugin.options.releaseTime%>'
+			var $CONFIG = {
+				releaseTime:'<%=htmlWebpackPlugin.options.releaseTime%>'
+			}
 		}
 	</script>
   </head>

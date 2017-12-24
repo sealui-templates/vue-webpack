@@ -141,14 +141,14 @@ module.exports = {
         '项目创建后，是否自动安装依赖文件?',
       choices: [
         {
-          name: 'Yes, use NPM',
-          value: 'npm',
-          short: 'npm',
-        },
-        {
           name: 'Yes, use Yarn',
           value: 'yarn',
           short: 'yarn',
+        },
+        {
+          name: 'Yes, use NPM',
+          value: 'npm',
+          short: 'npm',
         },
         {
           name: 'No, I will handle that myself',

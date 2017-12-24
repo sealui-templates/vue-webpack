@@ -69,10 +69,18 @@ const webpackConfig = merge(baseWebpackConfig, {
 			hash        : false,
 			releaseTime : (new Date()).getTime(),
 			minify: {
-				removeComments: true,
-				collapseWhitespace: true,
-				removeAttributeQuotes: false
-			},
+        removeAttributeQuotes         : false,
+        removeComments                : true,
+        collapseWhitespace            : true,
+        removeRedundantAttributes     : true,
+        useShortDoctype               : true,
+        removeEmptyAttributes         : true,
+        removeStyleLinkTypeAttributes : true,
+        keepClosingSlash              : true,
+        minifyJS                      : true,
+        minifyCSS                     : true,
+        minifyURLs                    : true
+      },
 			chunksSortMode: 'dependency'
 		}),
 		new webpack.HashedModuleIdsPlugin(),
