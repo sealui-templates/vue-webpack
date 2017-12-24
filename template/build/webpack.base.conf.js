@@ -31,7 +31,8 @@ var banner = [
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/entry.js'
+    app: './src/entry.js',
+    common : require.resolve('./polyfills')
   },
   output: {
 		path              : config[process.env.NODE_ENV]['assetsRoot'],
