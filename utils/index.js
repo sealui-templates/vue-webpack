@@ -159,7 +159,7 @@ function sortObject(object) {
   return sortedObject
 }
 
-exports.removeVuex = function delVuex(data) {
+exports.removeVuex = function removeVuex(data) {
   return runCommand('rm', ['-rf',`${data.destDirName}/src/store`])
   //return deleteall(`${data.destDirName}/src/store`)
 }

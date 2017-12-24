@@ -1,7 +1,7 @@
 'use strict'
 require('../check-versions')()
 
-process.env.NODE_ENV = 'production'
+//process.env.NODE_ENV = 'production'
 
 const ora           = require('ora')
 const rm            = require('rimraf')
@@ -14,7 +14,7 @@ const webpackConfig = require('../webpack.build.conf')
 var success         = chalk.bold.green;
 var error           = chalk.bold.red;
 var spinner = new ora({
-	text    : success('开始构建 [ '+process.env.NODE_ENV+' ]...'),
+	text    : success('开始构建 [ '+process.env.NODE_ENV+' 环境 ]...'),
 	spinner : "dots"
 })
 spinner.start()
@@ -35,13 +35,13 @@ rm(path.join(config[process.env.NODE_ENV]['assetsRoot'], config[process.env.NODE
 
     if (stats.hasErrors()) {
       console.log('---------------------------------')
-    	spinner.fail(error('  [ '+process.env.NODE_ENV+' ] 构建失败.'));
+    	spinner.fail(error('  [ '+process.env.NODE_ENV+' 环境 ] 构建失败.'));
     	console.log('---------------------------------\n')
       process.exit(1)
     }
 
     console.log(`🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴\n`)
-    spinner.succeed(success('  [ '+process.env.NODE_ENV+' ] 构建完成.'));
+    spinner.succeed(success('  [ '+process.env.NODE_ENV+' 环境 ] 构建完成.'));
     console.log(`\n🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴 🌴\n`)
   })
 })
