@@ -18,24 +18,24 @@ import router from './router'
 import request from 'plugins/request'
 Vue.use(request)
 {{/request}}
-
+import 'res/css/src/index'
 {{#isMobile}}
 var FastClick = require('fastclick');
 if ('addEventListener' in document) {
-    document.addEventListener('DOMContentLoaded', function() {
-        FastClick.attach(document.body);
-    }, false);
+		document.addEventListener('DOMContentLoaded', function() {
+				FastClick.attach(document.body);
+		}, false);
 }
 {{/isMobile}}
 
 {{#nprogress}}
 router.beforeEach((route, redirect, next) => {
-  NProgress.start()
-  next()
+	NProgress.start()
+	next()
 })
 
 router.afterEach(route => {
-  NProgress.done()
+	NProgress.done()
 })
 {{/nprogress}}
 
@@ -43,18 +43,18 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  {{#router}}
-  router,
-  {{/router}}
-  {{#vuex}}
-  store,
-  {{/vuex}}
-  {{#if_eq build "runtime"}}
-  render: h => h(App)
-  {{/if_eq}}
-  {{#if_eq build "standalone"}}
-  template: '<App/>',
-  components: { App }
-  {{/if_eq}}
+	el: '#app',
+	{{#router}}
+	router,
+	{{/router}}
+	{{#vuex}}
+	store,
+	{{/vuex}}
+	{{#if_eq build "runtime"}}
+	render: h => h(App)
+	{{/if_eq}}
+	{{#if_eq build "standalone"}}
+	template: '<App/>',
+	components: { App }
+	{{/if_eq}}
 })

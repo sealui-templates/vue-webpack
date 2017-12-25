@@ -1,6 +1,13 @@
+@charset "UTF-8";
+@import "./common/var.css";
 body{
   padding:0;
-  margin:0
+  margin:0;
+  font-size: 62.5%;
+  ont-family: -apple-system,PingFang SC,Hiragino Sans GB,Arial,Microsoft YaHei,Helvetica Neue,sans-serif;
+  word-break: break-word;
+  text-rendering: optimizeLegibility;
+  color: #333;
 }
 
 #nprogress {
@@ -38,14 +45,16 @@ body{
 #nprogress .spinner {
   display: block;
   position: fixed;
-  z-index: 1031;
-  top: 15px;
-  right: 15px;
+  top:50%;
+  left:50%;
+  right:auto;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 
 #nprogress .spinner-icon {
-  width: 18px;
-  height: 18px;
+  width: 36px;
+  height: 36px;
   box-sizing: border-box;
 
   border: solid 2px transparent;
