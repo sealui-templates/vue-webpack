@@ -8,7 +8,11 @@ const postcssConfig = {
       prefix: '_',
       extensions: ['css','less']
     }),
-    require('postcss-salad')(saladConfig)
+    require('postcss-salad')(saladConfig){{#isMobile}},
+    require('postcss-px2rem')({
+      remUnit:100,
+      remPrecision: 5
+    }){{/isMobile}}
   ]
 }
 
