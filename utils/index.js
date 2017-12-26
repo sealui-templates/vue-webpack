@@ -1,24 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const spawn = require('child_process').spawn
-const lintStyles = ['standard', 'airbnb']
-
-function deleteall(path) {  
-
-    // var files = [];  
-    // if(fs.existsSync(path)) {  
-    //     files = fs.readdirSync(path);  
-    //     files.forEach(function(file, index) {  
-    //         var curPath = path + "/" + file;  
-    //         if(fs.statSync(curPath).isDirectory()) { // recurse  
-    //             deleteall(curPath);  
-    //         } else { // delete file  
-    //             fs.unlinkSync(curPath);  
-    //         }  
-    //     });  
-    //     fs.rmdirSync(path);  
-    // }  
-};  
+const lintStyles = ['standard', 'airbnb'] 
 
 /**
  * Sorts dependencies in package.json alphabetically.
@@ -159,7 +142,6 @@ function sortObject(object) {
   return sortedObject
 }
 
-exports.removeVuex = function removeVuex(data) {
-  return runCommand('rm', ['-rf',`${data.destDirName}/src/store`])
-  //return deleteall(`${data.destDirName}/src/store`)
+exports.removeDir = function removeDir(dir){
+  return runCommand('rm', ['-rf',dir])
 }

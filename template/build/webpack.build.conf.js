@@ -110,6 +110,16 @@ const webpackConfig = merge(baseWebpackConfig, {
 	]
 })
 
+{{#pushFile}}
+// demo环境上传文件至demo服务器
+if(process.env.NODE_ENV === 'demo' && env.hostConfig){
+  const PushFileToServerPlugin = require('../webpack_plugins/seal-node-ssh')
+  webpackConfig.plugins.push(
+    new PushFileToServerPlugin(env.hostConfig)
+  )
+}
+{{/pushFile}}
+
 if (config[process.env.NODE_ENV]['productionGzip']) {
 	const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
