@@ -78,11 +78,31 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
-        }
+        loaders: [
+		      'file-loader?hash=sha512&digest=hex&name='+utils.assetsPath('img/[hash:16].[ext]'), {
+		        loader: 'image-webpack-loader',
+		        options: {
+		          gifsicle: {
+		            interlaced: false,
+		          },
+		          optipng: {
+		            optimizationLevel: 7,
+		          },
+		          pngquant: {
+		            quality: '65-90',
+		            speed: 4
+		          },
+		          mozjpeg: {
+		            progressive: true,
+		            quality: 75
+		          },
+		          // Specifying webp here will create a WEBP version of your JPG/PNG images
+		          webp: {
+		            quality: 100
+		          }
+		        }
+		      }
+		    ]
       },
       {
 				test: /\.html$/,
